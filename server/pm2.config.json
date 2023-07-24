@@ -1,0 +1,15 @@
+{
+  "apps" : [
+    {
+      "name" : "server",
+      "script" : "npm",
+      "args": "run start:dev",
+      "exec_mode" : "fork"
+    },
+    {
+      "name" : "cdn",
+      "script" : "npm",
+      "args" : "run start:local-cdn"
+    }
+  ]
+}

@@ -1,0 +1,97 @@
+
+
+.thumbnails {
+	border: 1px solid #ddd;
+	-moz-border-radius: 5px; -webkit-border-radius: 5px; border-radius: 5px;
+	margin: 0 auto;
+	position: relative;
+	padding: 10px 45px;
+	width: 660px;
+}
+
+.thumbnails a {
+	color: #777;
+	float: left;
+	margin: 0 5px;
+	position: relative;
+	text-align: center;
+	text-decoration: none;
+}
+
+.thumbnails img {
+	border: 5px solid transparent;
+	display: block;
+	margin: 0 0 5px;
+	-moz-border-radius: 5px; -webkit-border-radius: 5px; border-radius: 5px;
+}
+
+.thumbnails a:hover img {
+	border-color: #eee;
+}
+
+.thumbnails a:active img {
+	border-color: #aaa;
+}
+
+.thumbnails .active img,
+.thumbnails .active:hover img  {
+	border-color: #a41d0f;
+}
+
+.thumbnails a span {
+	background: #eee;
+	-moz-border-radius: 22px; -webkit-border-radius: 22px; border-radius: 22px;
+	font-weight: bold;
+	font-size: 12px;
+	margin: 5px auto 0 auto;
+	padding: 2px 15px;
+}
+
+.thumbnails a:hover span {
+	background: #ddd;
+}
+
+.thumbnails a:active span {
+	background: #aaa;
+	color: #fff;
+}
+
+.thumbnails a.active span {
+	background: #a41d0f;
+	color: #fff;
+}
+
+.thumbnails .previous, 
+.thumbnails .next {
+	float: none;
+	height: 24px;
+	position: absolute;
+	text-indent: -9999em;
+	top: 64px;
+	width: 24px;
+}
+
+.previous {
+	background-repeat: no-repeat 0 0;
+	left: 10px;
+}
+
+.next {
+	right: 10px;
+}
+
+.previous:hover, .next:hover {
+	opacity: .6;
+}
+
+.previous:active, .next:active {
+	opacity: 1;
+}
+
+.disabled {
+	opacity: .2 !important;
+}
+
+.group:before, .group:after { content: "\0020"; display: block; height: 0; overflow: hidden; }
+.group:after { clear: both; }
+.group { zoom: 1; }

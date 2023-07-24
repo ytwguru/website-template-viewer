@@ -1,0 +1,11 @@
+type Query {
+  """
+  Get all templates in range
+  """
+  templates(start:Int, limit:Int): [Template!]!
+  
+  """
+  Get a single template
+  """
+  templateById(id: ID): Template!
+}

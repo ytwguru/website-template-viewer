@@ -100,4 +100,17 @@ npm run start
 
 ```
 
-The CDN is intended only for development mode and serves the images
+_The React application requires a .env file._
+
+```
+./client/.env
+
+----
+
+REACT_APP_CDN_URL=http://localhost:4001
+REACT_APP_GRAPHQL_URL=http://localhost:4000/graphql
+
+```
+
+** The CDN is intended only for development mode and serves the images
+

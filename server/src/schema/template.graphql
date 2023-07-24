@@ -1,0 +1,8 @@
+type Template {
+  id: ID!
+  title: String!
+  cost: String!
+  description: String!
+  thumbnail: String!
+  image: String!
+}
