@@ -47,7 +47,7 @@ const TemplateList = ({ start, limit, cdnUrl }: TemplateListProps) => {
 
     if(fetchMoreResult.templates && previousResult.templates)
       fetchMoreResult.templates = [...previousResult.templates, ...fetchMoreResult.templates]
-    setLoaded(currentPage)
+    setLoaded(fetchMoreResult.templates.length)
     return { ...fetchMoreResult }
   };
 
