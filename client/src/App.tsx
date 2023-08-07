@@ -19,7 +19,7 @@ const App:React.FC<AppProps> = ({cdnUrl}: AppProps) => {
         <div id="main" role="main"></div>
         <SelectedTemplate cdnUrl={cdnUrl} />
         <TemplateList cdnUrl={cdnUrl} start={0} limit={4} />
-        <TemplateEntry cdnUrl={cdnUrl} />
+        <TemplateEntry />
       </Provider>
     </div>
 }
