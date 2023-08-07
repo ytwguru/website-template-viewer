@@ -1,18 +1,13 @@
 import React, {useState, useEffect} from "react"
 import { Template } from "../__generated__/graphql"
 import { useSelector, useDispatch } from 'react-redux';
-import { RootState, updateTemplate } from "./TemplateReducer";
+import { RootState, addTemplate } from "./TemplateReducer";
 import "./TemplateEntry.scss"
 
-interface TemplateEntryProps {
-  cdnUrl: string
-}
-
-const TemplateEntry: React.FC<TemplateEntryProps> = ({cdnUrl: string} : TemplateEntryProps) => {
-  //const [template, setTemplate] = useState<Template>();
+const TemplateEntry = () => {
   const newTemplate = useSelector((state: RootState) => state.template.newTemplate)
 
-  const [currentTemplate, setTemplate] = useState<Template>({
+  const [currentNewTemplate, setNewTemplate] = useState<Template>({
     id: '',
     title: '',
     cost: '',
@@ -31,7 +26,7 @@ const TemplateEntry: React.FC<TemplateEntryProps> = ({cdnUrl: string} : Template
   const handleChange = ( e: React.ChangeEvent<HTMLInputElement>) => {
     e.preventDefault();
     const nextTemplate = {
-      ...currentTemplate
+      ...currentNewTemplate
     } as Template;
 
     if(e.target.name === 'id')
@@ -47,10 +42,10 @@ const TemplateEntry: React.FC<TemplateEntryProps> = ({cdnUrl: string} : Template
     else if(e.target.name === 'image')
       nextTemplate.image = e.target.value;
 
-    setTemplate(nextTemplate)
+    setNewTemplate(nextTemplate)
   };
 
-  return <form className = "TemplateEntry" onSubmit={(e) => {e.preventDefault(); dispatch(updateTemplate(currentTemplate))}}>
+  return <form className = "TemplateEntry" onSubmit={(e) => {e.preventDefault(); dispatch(addTemplate(currentNewTemplate))}}>
     <div><label>ID</label><input type="text" name="id" onChange={(e) => handleChange(e)}/></div>
     <div><label>Title</label><input type="text" name="title" onChange={(e) => handleChange(e)}/></div>
     <div><label>Cost</label><input type="text" name="cost"  onChange={(e) => handleChange(e)}/></div>

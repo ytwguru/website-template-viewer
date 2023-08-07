@@ -25,13 +25,13 @@ export const templateSlice = createSlice({
     setTemplate : (state: TemplateState, action: PayloadAction<string>) => {
       state.currentTemplate = action.payload
     },
-    updateTemplate : (state: TemplateState, action: PayloadAction<Template>) => {
+    addTemplate : (state: TemplateState, action: PayloadAction<Template>) => {
       state.newTemplate = action.payload
     }
   }
 })
 
-export const { setTemplate, updateTemplate } = templateSlice.actions;
+export const { setTemplate, addTemplate } = templateSlice.actions;
 export const store = configureStore({
   reducer: {
     template: templateSlice.reducer
