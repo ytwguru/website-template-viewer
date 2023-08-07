@@ -1,10 +1,10 @@
 import React, {useState, useEffect} from 'react';
 import { useSelector, useDispatch } from 'react-redux';
-import { Template } from './__generated__/graphql';
+import { Template } from './../__generated__/graphql';
 import { DocumentNode, useQuery } from '@apollo/client';
-import { gql } from './__generated__/gql';
 import { RootState, setTemplate } from "./TemplateReducer";
-import './TemplateList.css';
+import { GET_TEMPLATES } from "./../lib/queries"
+import './TemplateList.scss';
 
 
 interface TemplateListProps {
@@ -13,16 +13,7 @@ interface TemplateListProps {
   cdnUrl: string;
 }
 
-const GET_TEMPLATES = gql( /* GraphQL */ `
-  query GetTemplates($start:Int, $limit:Int) {
-    templates(start: $start, limit: $limit) {
-      id
-      thumbnail
-    }
-  }
-`)
-
-const TemplateList = ({ start, limit, cdnUrl }: TemplateListProps) => {
+const TemplateList: React.FC<TemplateListProps> = ({ start, limit, cdnUrl }: TemplateListProps) => {
 
   const [currentPage, setPage ] = useState(start);
   const [currentIncr, setIncr] = useState(limit);

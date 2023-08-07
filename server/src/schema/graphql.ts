@@ -15,6 +15,16 @@ export type Scalars = {
   Float: { input: number; output: number; }
 };
 
+export type Mutation = {
+  /** Add template to template list */
+  addTemplate?: Maybe<Template>;
+};
+
+
+export type MutationAddTemplateArgs = {
+  template?: InputMaybe<TemplateInput>;
+};
+
 export type Query = {
   /** Get a single template */
   templateById: Template;
@@ -40,6 +50,15 @@ export type Template = {
   image: Scalars['String']['output'];
   thumbnail: Scalars['String']['output'];
   title: Scalars['String']['output'];
+};
+
+export type TemplateInput = {
+  cost: Scalars['String']['input'];
+  description: Scalars['String']['input'];
+  id: Scalars['ID']['input'];
+  image: Scalars['String']['input'];
+  thumbnail: Scalars['String']['input'];
+  title: Scalars['String']['input'];
 };
 
 export type WithIndex<TObject> = TObject & Record<string, any>;
@@ -117,9 +136,11 @@ export type ResolversTypes = ResolversObject<{
   Boolean: ResolverTypeWrapper<Scalars['Boolean']['output']>;
   ID: ResolverTypeWrapper<Scalars['ID']['output']>;
   Int: ResolverTypeWrapper<Scalars['Int']['output']>;
+  Mutation: ResolverTypeWrapper<{}>;
   Query: ResolverTypeWrapper<{}>;
   String: ResolverTypeWrapper<Scalars['String']['output']>;
   Template: ResolverTypeWrapper<Template>;
+  TemplateInput: TemplateInput;
 }>;
 
 /** Mapping between all available schema types and the resolvers parents */
@@ -127,9 +148,15 @@ export type ResolversParentTypes = ResolversObject<{
   Boolean: Scalars['Boolean']['output'];
   ID: Scalars['ID']['output'];
   Int: Scalars['Int']['output'];
+  Mutation: {};
   Query: {};
   String: Scalars['String']['output'];
   Template: Template;
+  TemplateInput: TemplateInput;
+}>;
+
+export type MutationResolvers<ContextType = any, ParentType extends ResolversParentTypes['Mutation'] = ResolversParentTypes['Mutation']> = ResolversObject<{
+  addTemplate?: Resolver<Maybe<ResolversTypes['Template']>, ParentType, ContextType, Partial<MutationAddTemplateArgs>>;
 }>;
 
 export type QueryResolvers<ContextType = any, ParentType extends ResolversParentTypes['Query'] = ResolversParentTypes['Query']> = ResolversObject<{
@@ -148,6 +175,7 @@ export type TemplateResolvers<ContextType = any, ParentType extends ResolversPar
 }>;
 
 export type Resolvers<ContextType = any> = ResolversObject<{
+  Mutation?: MutationResolvers<ContextType>;
   Query?: QueryResolvers<ContextType>;
   Template?: TemplateResolvers<ContextType>;
 }>;

@@ -1,0 +1,7 @@
+type Mutation {
+  """
+  Add template to template list
+  """
+  addTemplate(template:TemplateInput): Template
+
+}
