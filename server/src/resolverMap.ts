@@ -1,5 +1,6 @@
 import { getTemplates } from "./resolvers/getTemplates";
 import { getTemplateById } from "./resolvers/getTemplateById";
+import { addTemplate } from "./resolvers/addTemplate";
 import { Template } from "./schema/graphql";
 
 export default ({
@@ -11,4 +12,9 @@ export default ({
       return getTemplateById(args);
     },
   },
+  Mutation: {
+    addTemplate(_: void, args: void): Template {
+      return addTemplate(args);
+    },
+  }
 });

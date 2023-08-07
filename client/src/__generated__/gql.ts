@@ -13,8 +13,8 @@ import { TypedDocumentNode as DocumentNode } from '@graphql-typed-document-node/
  * Therefore it is highly recommended to use the babel or swc plugin for production.
  */
 const documents = {
-    "\n  query GetTemplateById($id: ID!) {\n    templateById(id: $id) {\n      title\n      cost\n      id\n      description\n      thumbnail\n      image\n    }\n  }\n": types.GetTemplateByIdDocument,
     "\n  query GetTemplates($start:Int, $limit:Int) {\n    templates(start: $start, limit: $limit) {\n      id\n      thumbnail\n    }\n  }\n": types.GetTemplatesDocument,
+    "\n  query GetTemplateById($id: ID!) {\n    templateById(id: $id) {\n      title\n      cost\n      id\n      description\n      thumbnail\n      image\n    }\n  }\n": types.GetTemplateByIdDocument,
 };
 
 /**
@@ -34,11 +34,11 @@ export function gql(source: string): unknown;
 /**
  * The gql function is used to parse GraphQL queries into a document that can be used by GraphQL clients.
  */
-export function gql(source: "\n  query GetTemplateById($id: ID!) {\n    templateById(id: $id) {\n      title\n      cost\n      id\n      description\n      thumbnail\n      image\n    }\n  }\n"): (typeof documents)["\n  query GetTemplateById($id: ID!) {\n    templateById(id: $id) {\n      title\n      cost\n      id\n      description\n      thumbnail\n      image\n    }\n  }\n"];
+export function gql(source: "\n  query GetTemplates($start:Int, $limit:Int) {\n    templates(start: $start, limit: $limit) {\n      id\n      thumbnail\n    }\n  }\n"): (typeof documents)["\n  query GetTemplates($start:Int, $limit:Int) {\n    templates(start: $start, limit: $limit) {\n      id\n      thumbnail\n    }\n  }\n"];
 /**
  * The gql function is used to parse GraphQL queries into a document that can be used by GraphQL clients.
  */
-export function gql(source: "\n  query GetTemplates($start:Int, $limit:Int) {\n    templates(start: $start, limit: $limit) {\n      id\n      thumbnail\n    }\n  }\n"): (typeof documents)["\n  query GetTemplates($start:Int, $limit:Int) {\n    templates(start: $start, limit: $limit) {\n      id\n      thumbnail\n    }\n  }\n"];
+export function gql(source: "\n  query GetTemplateById($id: ID!) {\n    templateById(id: $id) {\n      title\n      cost\n      id\n      description\n      thumbnail\n      image\n    }\n  }\n"): (typeof documents)["\n  query GetTemplateById($id: ID!) {\n    templateById(id: $id) {\n      title\n      cost\n      id\n      description\n      thumbnail\n      image\n    }\n  }\n"];
 
 export function gql(source: string) {
   return (documents as any)[source] ?? {};

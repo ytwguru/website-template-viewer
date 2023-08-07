@@ -1,30 +1,17 @@
 import React from 'react';
 import { useSelector } from 'react-redux';
-import { Template } from './__generated__/graphql';
+import { Template } from './../__generated__/graphql';
 import { DocumentNode, useQuery } from '@apollo/react-hooks';
 import { RootState } from "./TemplateReducer";
-import { gql } from './__generated__/gql';
+import { GET_TEMPLATE_BY_ID } from './../lib/queries'
 
-import './SelectedTemplate.css';
+import './SelectedTemplate.scss';
 
 interface SelectedTemplateProps {
   cdnUrl: string;
 }
 
-const GET_TEMPLATE_BY_ID = gql( /* GraphQL */ `
-  query GetTemplateById($id: ID!) {
-    templateById(id: $id) {
-      title
-      cost
-      id
-      description
-      thumbnail
-      image
-    }
-  }
-`)
-
-const SelectedTemplate = ({ cdnUrl}: SelectedTemplateProps) => {
+const SelectedTemplate: React.FC<SelectedTemplateProps> = ({ cdnUrl}: SelectedTemplateProps) => {
 
   const selectedTemplate = useSelector((state: RootState) => state.template.currentTemplate)
 

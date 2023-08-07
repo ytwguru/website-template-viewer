@@ -9,7 +9,7 @@ const schema = `${scheme}://${host}${port? ":"+port : ""}/graphql`;
 
 const gqlConfig: CodegenConfig = {
   schema,
-  documents: ['src/**/*.tsx'],
+  documents: ['src/**/*.tsx', 'src/**/*.ts'],
   generates: {
     './src/__generated__/': {
       preset: 'client',
